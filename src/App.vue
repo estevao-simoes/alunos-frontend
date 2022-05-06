@@ -1,32 +1,50 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
-  </div>
+  <v-app id="inspire">
+    <v-navigation-drawer
+      v-model="drawer"
+      app
+    >
+      <div class="my-3">
+        <img src="https://maisaedu.com.br/hubfs/site-grupo-a/logo-mais-a-educacao.svg" class="mx-auto w-1/4 pb-3">
+        <div class="text-center bg-gray-500 p-2">
+          <h2 class="text-white">
+            Módulo Acadêmico
+          </h2>  
+        </div>
+      </div>
+
+      <v-divider class="m-4"/>
+
+      <div class="mb-3 text-left">
+        <nav>
+          <router-link to="/" class="block">
+            Home
+          </router-link>
+          <router-link to="/about" class="block">
+            About
+          </router-link>
+        </nav>
+      </div>
+
+    </v-navigation-drawer>
+
+    <v-app-bar app>
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+      <!-- <v-toolbar-title>Application</v-toolbar-title> -->
+    </v-app-bar>
+
+    <v-main>
+      <router-view/>
+    </v-main>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+  export default {
+    
+    name: 'App',
+    data: () => ({ drawer: null }),
 
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+  }
+  
+</script>

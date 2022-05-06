@@ -25,7 +25,7 @@
           </v-card-title>
           <v-data-table
             :headers="headers"
-            :items="desserts"
+            :items="student"
             :search="search"
           ></v-data-table>
         </v-card>
@@ -42,7 +42,7 @@ export default {
       return {
         search: '',
         calories: '',
-        desserts: [
+        student: [
           {
             name: 'Frozen Yogurt',
             calories: 159,

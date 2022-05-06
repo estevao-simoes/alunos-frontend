@@ -18,10 +18,7 @@
       <div class="mb-3 text-left">
         <nav>
           <router-link to="/" class="block">
-            Home
-          </router-link>
-          <router-link to="/about" class="block">
-            About
+            Alunos
           </router-link>
         </nav>
       </div>

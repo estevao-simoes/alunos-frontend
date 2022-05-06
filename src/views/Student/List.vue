@@ -151,11 +151,13 @@ export default {
     students: [],
     editedIndex: -1,
     editedItem: {
+      id: '',
       name: '',
       email: '',
       cpf: '',
     },
     defaultItem: {
+      id: '',
       name: '',
       email: '',
       cpf: '',
@@ -223,12 +225,31 @@ export default {
       })
     },
 
-    save() {
+    save() {    
       if (this.editedIndex > -1) {
-        Object.assign(this.students[this.editedIndex], this.editedItem)
+
+        api.patch(`/student/${this.editedItem.id}`, {
+          name: this.editedItem.name,
+          cpf: this.editedItem.cpf,
+          email: this.editedItem.email
+        }).then( response => {
+          console.log(response.data);
+          Object.assign(this.students[this.editedIndex], response.data);
+        });
+        
+      
       } else {
-        this.students.push(this.editedItem)
+
+        api.post('/student', {
+          name: this.editedItem.name,
+          cpf: this.editedItem.cpf,
+          email: this.editedItem.email
+        }).then( response => {
+          this.students.push(response.data)
+        });
+
       }
+
       this.close()
     },
   },

@@ -17,8 +17,10 @@
 
       <div class="mb-3 text-left">
         <nav>
-          <router-link to="/" class="block">
-            Alunos
+          <router-link to="/" class="block bg-gray-200 p-2">
+            <div class="ml-4 text-black font-bold">
+              Alunos
+            </div>
           </router-link>
         </nav>
       </div>
